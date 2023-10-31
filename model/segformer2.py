@@ -63,8 +63,8 @@ class SegFormer2(nn.Layer):
         self.linear_c2 = MLP(input_dim=c2_in_channels, embed_dim=embedding_dim)
         self.linear_c1 = MLP(input_dim=c1_in_channels, embed_dim=embedding_dim)
 
-        self.lc1_1 = layers.ConvBN(in_channels=c1_in_channels, out_channels=c1_in_channels, kernel_size=[5, 5],
-                                   padding=2)
+        self.lc1_1 = layers.ConvBN(in_channels=c1_in_channels, out_channels=c1_in_channels, kernel_size=[1, 1],
+                                   padding=0)
         self.lc1_2 = \
             layers.ConvBN(in_channels=c1_in_channels, out_channels=c1_in_channels, kernel_size=[5, 9], padding=[2, 4])
         self.lc1_3 = \
@@ -72,8 +72,8 @@ class SegFormer2(nn.Layer):
         self.lc1 = \
             layers.ConvBN(in_channels=3*c1_in_channels, out_channels=c1_in_channels, kernel_size=1, padding=0)
         
-        self.lc2_1 = layers.ConvBN(in_channels=c2_in_channels, out_channels=c2_in_channels, kernel_size=[5, 5],
-                                   padding=2)
+        self.lc2_1 = layers.ConvBN(in_channels=c2_in_channels, out_channels=c2_in_channels, kernel_size=[1, 1],
+                                   padding=0)
         self.lc2_2 = \
             layers.ConvBN(in_channels=c2_in_channels, out_channels=c2_in_channels, kernel_size=[5, 9], padding=[2, 4])
         self.lc2_3 = \
@@ -83,8 +83,8 @@ class SegFormer2(nn.Layer):
             layers.ConvBN(in_channels=3*c2_in_channels, out_channels=c2_in_channels, kernel_size=1, padding=0)
 
 
-        self.lc3_1 = layers.ConvBN(in_channels=c3_in_channels, out_channels=c3_in_channels, kernel_size=[5, 5],
-                                   padding=2)
+        self.lc3_1 = layers.ConvBN(in_channels=c3_in_channels, out_channels=c3_in_channels, kernel_size=[1, 1],
+                                   padding=0)
         self.lc3_2 = \
             layers.ConvBN(in_channels=c3_in_channels, out_channels=c3_in_channels, kernel_size=[5, 9], padding=[2, 4])
         self.lc3_3 = \
@@ -92,8 +92,8 @@ class SegFormer2(nn.Layer):
         self.lc3 = \
             layers.ConvBN(in_channels=3*c3_in_channels, out_channels=c3_in_channels, kernel_size=1, padding=0)
         
-        self.lc4_1 = layers.ConvBN(in_channels=c4_in_channels, out_channels=c4_in_channels, kernel_size=[5, 5],
-                                   padding=2)
+        self.lc4_1 = layers.ConvBN(in_channels=c4_in_channels, out_channels=c4_in_channels, kernel_size=[1, 1],
+                                   padding=0)
         self.lc4_2 = \
             layers.ConvBN(in_channels=c4_in_channels, out_channels=c4_in_channels, kernel_size=[5, 9], padding=[2, 4])
         self.lc4_3 = \

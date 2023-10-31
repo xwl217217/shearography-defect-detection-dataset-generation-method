@@ -1,15 +1,12 @@
-% ¶ÁÈ¡ÏàÁÚÁ½¸öÊ±¿ÌµÄÍ¼Æ¬£¬¼ÆËãÏàÎ»
-% Ê±¿ÕÂË²¨£¬Ğ¡±äĞÎµş¼Ó
-%% ²»Í¬Ê±¿ÌµÄÏàÎ»ÅÅ³ÉÈıÎ»Êı×é£¬µÚÈıÎ¬ÊÇÊ±¼äÖá
-% Í¼Æ¬ image0-image119,120·ù
+% ç©ºé—´è½½æ³¢æ³•è®¡ç®—ç›¸ä½
 clear
 clc
-tic
-I1=imread('11.bmp');
+
+I1=imread('11.bmp'); %è®¾ç½®æ©è†œ
 I=I1;
 T=fftshift(fft2(I));
 imshow((1+abs(T)),[0.1e4,2e4])
-[x,y] = ginput(2); % x ÁĞ£¬y ĞĞ
+[x,y] = ginput(2); % x åˆ—ï¼Œy è¡Œ
 x=round(x);y=round(y);
 mask=zeros(size(I1));
 mask(y(1):y(2),x(1):x(2))=1;
@@ -19,17 +16,16 @@ for i=11:17
     i
     P2=newpolar(i,mask);
     P(:,:,i-10)=P2.*conj(P1);
-    %     A=angle(P2.*conj(P1));
-    %     ir=im2uint8(mat2gray(A));
-    %     filename=[num2str(i),'.bmp'];
-    %     imwrite(ir,filename);
+    A=angle(P2.*conj(P1)); %ä¿å­˜ç›¸ä½å›¾
+    ir=im2uint8(mat2gray(A));
+    filename=[num2str(i),'.bmp'];
+    imwrite(ir,filename);
 end
 
 
-%% label±ê×¢
-imageLabeler
-% imshow(logical(imread(string(gTruth.LabelData.a(1,1)))));
-%% ½øĞĞËæ»ú¼ôÇĞ
+%% labelæ ‡æ³¨
+imageLabeler %ä¿å­˜å¾—åˆ°Label_1.png
+%% è¿›è¡Œéšæœºå‰ªåˆ‡
 clear
 close all
 clc
@@ -40,8 +36,8 @@ num=1;
 for i=1:1
     for Z=2:z
         num
-        %         dx=20+randi(200); %y fangxiang qianqie
-        %         dy=20+randi(200); %x fangxiang jianqie
+        %         dx=20+randi(200); %y æ–¹å‘å‰ªåˆ‡
+        %         dy=20+randi(200); %x æ–¹å‘å‰ªåˆ‡
         dx=200;
         dy=100;
         FF1=FF(:,:,Z);
@@ -61,7 +57,7 @@ end
 
 
 
-%% ²Ã¼ô
+%% è£å‰ª
 num=0;
 for i=1:3000
     filename1=['images','\',num2str(i),'.jpg'];
@@ -90,17 +86,6 @@ end
 
 
 
-
-%%
-I1=imread("179.jpg");
-I2=imread("fai12.bmp");
-I3=imread("fai12.bmp");
-i1=I1(809:1461,261:989);
-i2=I2(809:1461,261:989);
-i3=I3(41:701,1017:1685);
-imwrite(i1,'1.jpg');
-imwrite(i2,'4.jpg');
-imwrite(i3,'5.jpg');
 
 
 
